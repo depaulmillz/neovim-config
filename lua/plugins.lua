@@ -24,6 +24,8 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'neovim/nvim-lspconfig'
+  use 'nvim-lua/plenary.nvim'
+  use 'susliko/tla.nvim'
 
   -- My plugins here
   -- use 'foo1/bar1.nvim'
