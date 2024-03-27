@@ -22,3 +22,18 @@ vim.o.cinoptions = 'g0,N-s'
 vim.o.cinkeys = '0{,0},0),0],:,!^F,o,0,e'
 
 
+function is_wsl()
+  local f = io.popen("uname -r")
+  local s = f:read("*a")
+  f:close()
+  return string.find(s, "microsoft") ~= nil
+end
+
+if is_wsl() then
+  vim.cmd([[augroup Yank
+  autocmd!                
+  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+  augroup END
+  ]])
+end
+
